@@ -1,12 +1,15 @@
-﻿namespace WorkReview
+﻿using WorkReview.Models;
+namespace WorkReview
 {
     public partial class App : Application
     {
-        public App()
+        public static ProductRepository ProductRepo { get; private set; } //これはProductRepositoryオブジェクトを保持するためのプロパティ
+        public App(ProductRepository repo)
         {
             InitializeComponent();
 
             MainPage = new AppShell();
+            ProductRepo = repo;
         }
     }
 }
