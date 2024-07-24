@@ -1,4 +1,8 @@
+using WorkReview.Models;
+using System.Collections.Generic;
+
 namespace WorkReview.Views;
+
 
 public partial class MainPage : ContentPage
 {
@@ -6,4 +10,20 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    public void OnNewAddButtonClicked(object sender, EventArgs args)
+    {
+        statusMessage.Text = "";
+
+        App.ProductRepo.AddNewProduct(newProduct.Text);
+        statusMessage.Text = App.ProductRepo.StatusMessage;
+    }
+
+    public void OnGetButtonClicked(object sender, EventArgs args)
+    {
+        statusMessage.Text = "";
+
+        List<Product> products = App.ProductRepo.GetAllProducts();
+        productList.ItemsSource = products;
+    }
 }

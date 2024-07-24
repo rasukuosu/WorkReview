@@ -15,11 +15,10 @@ namespace WorkReview
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-            string dbPath = FileAccessHelper.GetLocalFilePath("people.db3");
+            string dbPath = FileAccessHelper.GetLocalFilePath("product.db3");
             builder.Services.AddSingleton<ProductRepository>(s => ActivatorUtilities.CreateInstance<ProductRepository>(s, dbPath));
-#if DEBUG
-            builder.Logging.AddDebug();
-#endif
+
+           
 
             return builder.Build();
         }

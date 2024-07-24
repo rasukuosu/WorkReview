@@ -16,7 +16,12 @@ namespace WorkReview.Models
 
         private SQLiteConnection conn;
 
-        private void Init() //Tabeleがすでに作成されていたらreturnを返すそうでなければ新たにTableを作成する
+        public ProductRepository(string dbPath)
+        {
+            _dbPath = dbPath;
+        }
+
+        private  void Init() //Tabeleがすでに作成されていたらreturnを返すそうでなければ新たにTableを作成する
         {
             if (conn is not null)
                 return;
@@ -44,6 +49,7 @@ namespace WorkReview.Models
         {
             try
             { 
+                Init ();
                 return conn.Table<Product>().ToList();
             }
             catch (Exception ex)
