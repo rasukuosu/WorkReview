@@ -28,6 +28,7 @@ namespace WorkReview.Models
             conn = new SQLiteConnection(_dbPath);
 
             conn.CreateTable<Product>();
+
         }
         public void AddNewProduct(string name)
         {
