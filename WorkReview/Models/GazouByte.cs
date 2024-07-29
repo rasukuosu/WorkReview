@@ -12,7 +12,7 @@ public class GazouByte
 [PrimaryKey, AutoIncrement]
 public int Number { get; set; }
 [MaxLength(10), Unique]
-public string GazouNamae { get; set; }
+public string GazouName { get; set; }
 [MaxLength(10), Unique]
 public byte[] Content { get; set; }
 }

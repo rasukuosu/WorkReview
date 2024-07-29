@@ -25,7 +25,7 @@ namespace WorkReview.Models
         {
             if (conn is not null)
                 return;
-            conn = new SQLiteConnection(_dbPath);
+            conn = new SQLiteConnection(_dbPath); //_dbPathのパスでsqlコネクションを新しくインスタンス作成
 
             conn.CreateTable<Product>();
 
