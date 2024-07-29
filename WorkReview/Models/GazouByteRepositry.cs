@@ -30,14 +30,15 @@ namespace WorkReview.Models
 
         }
 
-        public void AddNewGazouByte(string gazouName)
+        public void AddNewGazouByte(string gazouName, byte [] content)
         {
+            ArgumentNullException.ThrowIfNull(content, nameof(content));
             ArgumentNullException.ThrowIfNull(gazouName, nameof(gazouName));
             int gazouResult = 0;
             try
             {
                 Init();
-                gazouResult = gazouconn.Insert(new GazouByte { GazouName = gazouName });
+                gazouResult = gazouconn.Insert(new GazouByte { GazouName = gazouName , Content = content });
                 GazouStatusMessage = string.Format("{0} record(s) added (GazouName: {1})", gazouResult, gazouName);
             }
             catch (Exception ex)
