@@ -20,6 +20,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <Button Text="ファイルを選択する" Grid.Row="4" Clicked="OnFileSelectClicked"/>
 
     </Grid>
 </ContentPage>
