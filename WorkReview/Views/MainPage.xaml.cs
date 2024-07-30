@@ -26,4 +26,6 @@ public partial class MainPage : ContentPage
         List<Product> products = App.ProductRepo.GetAllProducts();
         productList.ItemsSource = products;
     }
+    public void OnFileSelectClicked(object sender, EventArgs args) { 
+    }
 }
