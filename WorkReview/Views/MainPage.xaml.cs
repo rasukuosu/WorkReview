@@ -1,15 +1,19 @@
 using WorkReview.Models;
 using System.Collections.Generic;
+using Microsoft.VisualBasic;
+using WorkReview.ViewModels;
 
 namespace WorkReview.Views;
 
 
 public partial class MainPage : ContentPage
 {
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public MainPage()
+    {
+        InitializeComponent();
+        BindingContext = new MainviewModel();
+      
+    }
 
     public void OnNewAddButtonClicked(object sender, EventArgs args)
     {
@@ -26,6 +30,24 @@ public partial class MainPage : ContentPage
         List<Product> products = App.ProductRepo.GetAllProducts();
         productList.ItemsSource = products;
     }
-    public void OnFileSelectClicked(object sender, EventArgs args) { 
+    public async void OnFileSelectClicked(object sender, EventArgs args)
+    {
+        var result = await FilePicker.PickAsync();
+        if (result != null)
+        {
+            if (result.FileName.EndsWith("jpg", StringComparison.OrdinalIgnoreCase) || result.FileName.EndsWith("png", StringComparison.OrdinalIgnoreCase))
+            {
+                var stream = await result.OpenReadAsync();
+                userPreview.Source = ImageSource.FromStream(() => stream);
+
+                using (var memoryStream = new MemoryStream())
+                {
+                    await stream.CopyToAsync(memoryStream);
+                    byte[] imageBinary = memoryStream.ToArray();
+                    ///Ç±Ç±Ç…ViewmodelÇÃÉoÉCÉiÉäObservablepropertyÇèëÇ≠
+                    MainViewModel.GazouBynary = imageBinary;
+                }
+            }
+        }
     }
 }
