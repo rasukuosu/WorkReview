@@ -3,13 +3,13 @@ namespace WorkReview
 {
     public partial class App : Application
     {
-        public static ProductRepository ProductRepo { get; private set; } //これはProductRepositoryオブジェクトを保持するためのプロパティ
-        public App(ProductRepository repo)
+        public static GazouByteRepositry GazouByteRepo { get; private set; } //これはProductRepositoryオブジェクトを保持するためのプロパティ
+        public App(GazouByteRepositry repo)
         {
             InitializeComponent();
 
             MainPage = new AppShell();
-            ProductRepo = repo;
+            GazouByteRepo = repo;
         }
     }
 }

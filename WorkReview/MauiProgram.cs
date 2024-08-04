@@ -15,8 +15,8 @@ namespace WorkReview
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-            string dbPath = FileAccessHelper.GetLocalFilePath("product.db3");
-            builder.Services.AddSingleton<ProductRepository>(s => ActivatorUtilities.CreateInstance<ProductRepository>(s, dbPath));
+            string dbPath = FileAccessHelper.GetLocalFilePath("gazouByte.db3");
+            builder.Services.AddSingleton< GazouByteRepositry> (s => ActivatorUtilities.CreateInstance< GazouByteRepositry> (s, dbPath));
 
            
 
