@@ -14,10 +14,7 @@ public class GazouByte
 public int Number { get; set; }
 [MaxLength(10), Unique]
 public string GazouName { get; set; }
-[MaxLength(10), Unique]
-public byte[] Content { get; set; } //画像のbitmap
-[MaxLength(10), Unique]
 public byte[] ContentBinary { get; set; } //画像のバイナリ用
+public string FileExtension { get; set; }
 
-    
 }

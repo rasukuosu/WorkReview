@@ -17,8 +17,9 @@ namespace WorkReview.ViewModels
         public MainViewModel()
         {
             _gazouByteRepositry = new GazouByteRepositry("gazouByte.db3");
-            LoadGazouBytes();
-        }
+
+                    
+         }
 
         [ObservableProperty]
         public string gazouName;
@@ -27,22 +28,7 @@ namespace WorkReview.ViewModels
         public string gazouPath;
         [ObservableProperty]
         public byte[] gazouBinary;
-        [ObservableProperty]
-        public byte[] gazouBitmap;
-        [ObservableProperty]
-        public ObservableCollection<GazouByte> gazouBytes;
 
 
-        public void AddGazouByte()
-        {
-            _gazouByteRepositry.AddNewGazouByte(gazouName, gazouBinary);
-            LoadGazouBytes();
-        }
-
-        public void LoadGazouBytes()
-        {
-            var gazouByteList = _gazouByteRepositry.GetAllGazouBytes();
-           gazouBytes = new ObservableCollection<GazouByte>(gazouByteList);
-        }
     }
 }
