@@ -28,7 +28,22 @@ namespace WorkReview.ViewModels
         public string gazouPath;
         [ObservableProperty]
         public byte[] gazouBinary;
+        [ObservableProperty]
+        public string gazouExtension;
 
+
+        public void SaveGazouToDataBase()
+        {
+            var gazouByte = new GazouByte
+            {
+                GazouName = gazouName,
+                ContentBinary = gazouBinary,
+                GazouExtension = gazouExtension
+
+            };
+
+           // _gazouByteRepositry.SaveGazou
+        }
 
     }
 }
