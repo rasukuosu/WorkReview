@@ -11,10 +11,10 @@ namespace WorkReview.Models;
 public class GazouByte
 {
 [PrimaryKey, AutoIncrement]
-public int Number { get; set; }
+public int Id { get; set; }
 [MaxLength(10), Unique]
 public string GazouName { get; set; }
-public byte[] ContentBinary { get; set; } //画像のバイナリ用
+public byte[] GazouBinary { get; set; } //画像のバイナリ用
 public string GazouExtension { get; set; }
 
 }

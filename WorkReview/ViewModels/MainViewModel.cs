@@ -37,12 +37,12 @@ namespace WorkReview.ViewModels
             var gazouByte = new GazouByte
             {
                 GazouName = gazouName,
-                ContentBinary = gazouBinary,
+                GazouBinary = gazouBinary,
                 GazouExtension = gazouExtension
 
             };
 
-           // _gazouByteRepositry.SaveGazou
+            _gazouByteRepositry.AddNewGazouByte(GazouName,GazouBinary, GazouExtension);
         }
 
     }

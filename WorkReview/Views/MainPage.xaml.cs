@@ -13,7 +13,21 @@ namespace WorkReview.Views
             InitializeComponent();
             BindingContext = new MainViewModel();
         }
+        
 
+        public void OnGetAllGazouClicked(object sender, EventArgs args)
+        {
+            List<GazouByte> gazouBytes = App.GazouByteRepo.GetAllGazouBytes();
+            productList.ItemsSource = gazouBytes;
+        }
+
+
+        public void OnFileSaveClicked(object sender, EventArgs args)
+        {
+
+            
+            (BindingContext as MainViewModel).SaveGazouToDataBase(); //BindingVontextのインスタンスをもちいて.Save~メソッドを実行している
+        }
 
         public async void OnFileSelectClicked(object sender, EventArgs args)
         {
@@ -21,6 +35,7 @@ namespace WorkReview.Views
             {
                 var result = await FilePicker.PickAsync();
                 var fileExtension = result.ContentType;
+                var fileName = result.FileName;
                 if (result != null)
                 {
                     if (result.FileName.EndsWith("jpg", StringComparison.OrdinalIgnoreCase) ||
@@ -33,6 +48,7 @@ namespace WorkReview.Views
                             {
                                 await stream.CopyToAsync(memoryStream);
                                 (BindingContext as MainViewModel).gazouExtension = fileExtension;
+                                (BindingContext as MainViewModel).gazouName = fileName;
                                 (BindingContext as MainViewModel).gazouBinary = memoryStream.ToArray();
                                 var previewStream = new MemoryStream(memoryStream.ToArray());
                                 userPreview.Source = ImageSource.FromStream(() => previewStream);
