@@ -42,7 +42,8 @@ namespace WorkReview.ViewModels
 
             };
 
-            _gazouByteRepositry.AddNewGazouByte(GazouName,GazouBinary, GazouExtension);
+            _gazouByteRepositry.AddNewGazouByte(GazouName, GazouBinary, GazouExtension);
+            
         }
 
     }

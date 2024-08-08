@@ -5,10 +5,10 @@
              Title="MainPage"
              BackgroundColor="{DynamicResource Gray500}">
     <Grid Padding="5" RowSpacing="10" ColumnSpacing="10" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto,*">
-        <Entry x:Name="newProduct" Placeholder="Entry"/>
+        <Label x:Name="azouStatusMessage" TextColor="Wheat" Grid.Row="2"/>
         <Label x:Name="statusMessage" TextColor="red" Grid.Row="2"/>
         <Button Text="Get All GazouList" Grid.Row="3" Clicked="OnGetAllGazouClicked" />
-        <CollectionView x:Name="productList" Grid.Row="4">
+        <CollectionView x:Name="productList" Grid.Row="4" ItemsSource="{Binding GazouByte}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid ColumnDefinitions="*,2*">

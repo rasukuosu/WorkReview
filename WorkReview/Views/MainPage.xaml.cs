@@ -17,8 +17,10 @@ namespace WorkReview.Views
 
         public void OnGetAllGazouClicked(object sender, EventArgs args)
         {
-            List<GazouByte> gazouBytes = App.GazouByteRepo.GetAllGazouBytes();
-            productList.ItemsSource = gazouBytes;
+            List<GazouByte> gazouByte = App.GazouByteRepo.GetAllGazouBytes();
+       
+            statusMessage.Text = "got all file list";
+
         }
 
 
@@ -27,6 +29,8 @@ namespace WorkReview.Views
 
             
             (BindingContext as MainViewModel).SaveGazouToDataBase(); //BindingVontextのインスタンスをもちいて.Save~メソッドを実行している
+            statusMessage.Text = "file saved";
+
         }
 
         public async void OnFileSelectClicked(object sender, EventArgs args)

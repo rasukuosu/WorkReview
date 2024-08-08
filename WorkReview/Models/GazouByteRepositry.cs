@@ -20,7 +20,7 @@ namespace WorkReview.Models
             _gazoudbPath = gazoudbPath;
         }
 
-        private void Init()
+        private void Init() //dbに接続後テーブル作成
         {
             if (gazouconn is not null)
                 return;
@@ -41,6 +41,7 @@ namespace WorkReview.Models
                 Init();
 
                 gazouResult = gazouconn.Insert(new GazouByte { GazouName = gazouName, GazouBinary = gazouBinary, GazouExtension = gazouExtension });
+                Console.WriteLine($"Insert result: {gazouResult}");
                 GazouStatusMessage = string.Format("{0} record(s) added (GazouName: {1})", gazouResult, gazouName);
             }
             catch (Exception ex)
