@@ -50,7 +50,7 @@ namespace WorkReview.Views
                         {
                             using (var memoryStream = new MemoryStream())///using(var)はUsingステートメント,{}内の処理が終わったときにリソースが開放される
                             {
-                                await stream.CopyToAsync(memoryStream);
+                                await stream.CopyToAsync(memoryStream);　//memoryStreamに保存されたデータをViewModelの該当箇所へ送る / send data to 
                                 (BindingContext as MainViewModel).gazouExtension = fileExtension;
                                 (BindingContext as MainViewModel).gazouName = fileName;
                                 (BindingContext as MainViewModel).gazouBinary = memoryStream.ToArray();

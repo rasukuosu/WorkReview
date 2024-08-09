@@ -30,7 +30,7 @@ namespace WorkReview.Models
 
         }
 
-        public void AddNewGazouByte(string gazouName, byte[] gazouBinary, string gazouExtension)
+        public void AddNewGazouByte(string gazouName, byte[] gazouBinary, string gazouExtension)//画像データをDBへ挿入
         {
             ArgumentNullException.ThrowIfNull(gazouName, nameof(gazouExtension));
             ArgumentNullException.ThrowIfNull(gazouBinary, nameof(gazouBinary));
@@ -49,7 +49,7 @@ namespace WorkReview.Models
                 GazouStatusMessage = string.Format("Failed to add {0}. Error: {1}", gazouName, ex.Message);
             }
         }
-        public List<GazouByte> GetAllGazouBytes()
+        public List<GazouByte> GetAllGazouBytes()//テーブルを取得
         {
             try
             {

@@ -32,7 +32,7 @@ namespace WorkReview.ViewModels
         public string gazouExtension;
 
 
-        public void SaveGazouToDataBase()
+        public void SaveGazouToDataBase()//MainPageから渡された画像データをRepositryへ送る。
         {
             var gazouByte = new GazouByte
             {
